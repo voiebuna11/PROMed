@@ -1,0 +1,133 @@
+.login-form{
+	max-width: 400px;
+	height: 280px;;
+	margin: 0 auto;
+	background: white;
+	position: absolute;
+    top: 55%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding-top: 1%;
+    border-style: solid;
+    border-color: #e6e6e6;
+    border-radius: 5px;
+}
+.form-group{
+	max-width: 300px;
+	margin: auto;
+	margin-top: 5%;
+}
+.login-link{
+	cursor: pointer;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #316981;
+}
+.sheet{
+	background: white;
+	margin-left: 200px;
+	width:auto;
+	height: auto;
+	min-height: 100%;
+	color: black;
+}
+#home{
+	width:200px; 
+	height:50px; 
+	border: ridge 2px;
+	border-color: transparent;
+}
+#home:hover{
+	border: ridge 2px;
+	border-color: white;
+}
+.top-lateral{
+	height: 265px;
+	background: #316981; 
+	border-bottom: solid 1px; 
+	border-color:white;
+	background: white; /* For browsers that do not support gradients */
+	background: linear-gradient(white, #316981);
+	color: white;
+	text-align: center;
+}
+.top-lateral a{
+	color:white;
+}
+#doctor{
+	color:white;
+	margin: auto;
+	display:block;
+}
+#logout{
+	float:right;
+	margin-right: 10px;
+}
+.panou-tabel{
+	margin-top: 1.8%;
+	margin-left: 2%;
+	width: 96%;
+}
+.panou_butoane{
+	margin-left: 2%;
+	margin-top: -0.5%;
+	display: block;
+	margin-right:2%;
+}
+.delete_button{
+	color: red;
+}
+td {
+	text-align: center;
+}
+th {
+	text-align: center;
+}
+tr {
+	cursor: pointer;
+}
+.alert{
+	display:none;
+	position:absolute;
+	top: 10%;
+	margin-left:50%;
+}
+#Adaugare_pacient_modal .input-group-addon, #Editare_pacient_modal .input-group-addon{
+	min-width:110px;
+}
+
+#Adaugare_pacient_modal .help-block, #Editare_pacient_modal .help-block{
+	color: #a6a6a6;
+	font-size: 10px;
+	margin-top: -22px;
+	margin-bottom: -20px;
+	inline-block;
+	padding-left:10px
+}
+#Adaugare_pacient_modal #errorlog, #Editare_pacient_modal #errorlog_e{
+	color: red;
+	float: left;
+	font-size: 13px;
+}
+.text_alert_modal{
+	text-align: center;
+}
