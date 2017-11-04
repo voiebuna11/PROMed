@@ -14,19 +14,11 @@ include("../dbconn.php");
 <script>
 var temporar = 0;
 $(document).ready(function () {
-	$('#dataTables-example').dataTable();
-	
+	$('#tabel-cu-pacienti').dataTable();
 });
 function lanseaza_modal(){
 	$("#Adaugare_pacient_modal").modal()
 }
-
-function incarca(link){
-	id = "#" + link;
-	$(id).load(link + ".php");
-}
-
-
 
 </script>
 </head>
@@ -37,8 +29,8 @@ function incarca(link){
 <div class="panel-body">
 	<ul class="nav nav-tabs">
     	<li class="active"><a href="#lista" name="lista" data-toggle="tab">Listă cu pacienți</a></li>
-    	<li class=""><a href="#bolnavi" onClick="incarca(this.name)" name="bolnavi" data-toggle="tab">Bolnavi cronici</a></li>
-		<li class=""><a href="#indexfisa" onClick="incarca(this.name)" name="indexfisa" data-toggle="tab">Fișe medicale</a></li>
+    	<li class=""><a href="#bolnavi" name="bolnavi" data-toggle="tab">Bolnavi cronici</a></li>
+		<li class=""><a href="#indexfisa" name="indexfisa" data-toggle="tab">Fișe medicale</a></li>
         <a class="btn btn-danger" href="../logout.php" id="logout">Deconectare</a>
 	</ul>
 </div>
@@ -52,7 +44,7 @@ function incarca(link){
     	
     	<div class="panou-tabel">
     	<div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="tabel-cu-pacienti">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -61,7 +53,7 @@ function incarca(link){
                                             <th>CNP</th>
                                             <th>CID</th>
                                             <th>Sex</th>
-                                            <th>Data Nasterii</th>
+                                            <th>Data nașterii</th>
                                             <th>Asig.</th>
                                             <th>Șterge</th>
                                         </tr>
@@ -87,7 +79,7 @@ function incarca(link){
                             </div>
     	
     </div>
-    <div class="tab-pane fade" id="bolnavi"></div>
+    <div class="tab-pane fade" id="bolnavi"><?php include("bolnavi.php") ?></div>
     <div class="tab-pane fade" id="indexfisa"></div>
 </div>
 </div>
@@ -105,12 +97,12 @@ function incarca(link){
     	<span class="input-group-addon">Nume</span>
     	<input type="text" class="form-control" id="nume_pacient">
     </div>
-    <p class="form-group help-block">*Doar litere si majuscule permise.</p>
+    <p class="form-group help-block">*Doar litere și majuscule permise.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">Prenume</span>
     	<input type="text" class="form-control" id="prenume_pacient">
     </div>
-    <p class="form-group help-block">*Doar litere si majuscule permise.</p>
+    <p class="form-group help-block">*Doar litere și majuscule permise.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">CNP</span>
     	<input type="text" class="form-control" id="CNP_pacient">
@@ -169,12 +161,12 @@ function incarca(link){
     	<span class="input-group-addon">Nume</span>
     	<input type="text" class="form-control" id="nume_pacient_e">
     </div>
-    <p class="form-group help-block">*Doar litere si majuscule permise.</p>
+    <p class="form-group help-block">*Doar litere și majuscule permise.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">Prenume</span>
     	<input type="text" class="form-control" id="prenume_pacient_e">
     </div>
-    <p class="form-group help-block">*Doar litere si majuscule permise.</p>
+    <p class="form-group help-block">*Doar litere și majuscule permise.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">CNP</span>
     	<input type="text" class="form-control" id="CNP_pacient_e">
