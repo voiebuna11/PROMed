@@ -89,7 +89,7 @@ function lanseaza_modal_cronic(){
 	
 	<button type="button" class="btn btn-warning" data-dismiss="modal">Închide fereastra</button>
 	<button type="button" class="btn btn-primary">Adaugă în listă</button>
-	<strong><p id="errorlog_e" class="help-block"></p></strong>
+	<strong><p id="errorlog_cronici" class="help-block"></p></strong>
 </div>
 </div>
 </div>

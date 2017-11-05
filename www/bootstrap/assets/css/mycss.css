@@ -128,6 +128,11 @@ tr {
 	float: left;
 	font-size: 13px;
 }
+.modal-footer #errorlog_e{
+	color: red;
+	float: left;
+	font-size: 13px;
+}
 .text_alert_modal{
 	text-align: center;
 }

@@ -25,8 +25,8 @@
 }
 </style>
 <script>
-$(document).ready(function(){
-	
+$(document).keypress(function(e) {
+    if(e.which == 13) login();
 });
 function login(){
 	var regex = /^[A-Za-z0-9]+$/
@@ -75,7 +75,7 @@ function login(){
 </head>
 <body style="background-color: #f2f2f2">
 	<img src="bootstrap/images/image-2.png">
-    <form role="form" class="login-form">
+    <form role="form" class="login-form" id="login">
     <div class="form-group" id="divnume">
     	<label>Nume de utilizator</label><input class="form-control" type="text" id="nume"/>
     </div>

@@ -23,9 +23,15 @@ function alert_danger(text){
 	$('.alert-danger').fadeIn('slow');
 	alert_warning_out();
 }
+function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
 function salveaza_pacient(){
 	var nume = $("#nume_pacient").val();
+	nume = toTitleCase(nume);
 	var prenume = $("#prenume_pacient").val();
+	prenume = toTitleCase(prenume);
 	var CNP = $("#CNP_pacient").val();
 	var CID = $("#CID_pacient").val();
 	var sex = $("#sex_pacient").val();
@@ -38,7 +44,7 @@ function salveaza_pacient(){
 	}
 	var regex = /^[a-zA-Z\s]*$/;
 	var regex_numere = /^\d+$/;
-	if(nume.search(regex)==-1 || nume.length < 2 || prenume.search(regex)==-1 || prenume.length < 2 || CNP.search(regex_numere)==-1 || CID.search(regex_numere)==-1 || CNP.length != 13 || CID.length !=20 || datan.length == 0){
+	if(nume.search(regex)==-1 || nume.length < 2 || nume[0] == ' ' || prenume[0] == ' ' || prenume.search(regex)==-1 || prenume.length < 2 || CNP.search(regex_numere)==-1 || CID.search(regex_numere)==-1 || CNP.length != 13 || CID.length !=20 || datan.length == 0){
 		document.getElementById("errorlog").innerHTML = "Formatul datelor este incorect.";
 		return 0;
 	}
@@ -59,7 +65,9 @@ function salveaza_pacient(){
 function salveaza_pacient_edit(){
 	id = temporar;
 	var nume = $("#nume_pacient_e").val();
+	nume = toTitleCase(nume);
 	var prenume = $("#prenume_pacient_e").val();
+	prenume = toTitleCase(prenume);
 	var CNP = $("#CNP_pacient_e").val();
 	var CID = $("#CID_pacient_e").val();
 	var sex = $("#sex_pacient_e").val();
@@ -72,7 +80,7 @@ function salveaza_pacient_edit(){
 	}
 	var regex = /^[a-zA-Z\s]*$/;
 	var regex_numere = /^\d+$/;
-	if(nume.search(regex)==-1 || nume.length < 2 || prenume.search(regex)==-1 || prenume.length < 2 || CNP.search(regex_numere)==-1 || CID.search(regex_numere)==-1 || CNP.length != 13 || CID.length !=20 || datan.length == 0){
+	if(nume.search(regex)==-1 || nume.length < 2 || nume[0] == ' ' || prenume[0] == ' ' || prenume.search(regex)==-1 || prenume.length < 2 || CNP.search(regex_numere)==-1 || CID.search(regex_numere)==-1 || CNP.length != 13 || CID.length !=20 || datan.length == 0){
 		document.getElementById("errorlog_e").innerHTML = "Formatul datelor este incorect.";
 		return 0;
 	}
@@ -87,7 +95,7 @@ function salveaza_pacient_edit(){
            	}
          	document.getElementById("errorlog_e").innerHTML = data; 
            }
-		});
+	}); 
 }
 function sterge_pacient(id){
 	if(confirm('Sunteti sigur ca vreti sa stergeti acest pacient ?'))
@@ -104,6 +112,7 @@ function sterge_pacient(id){
 		});	
 }
 function lanseaza_modal_editare(id){
+	document.getElementById("errorlog_e").innerHTML = ''; 
 	temporar = id;
 	$.ajax({  
            url:"../scripts/preluare_date_pacient.php",  
