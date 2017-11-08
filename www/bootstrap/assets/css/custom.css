@@ -233,8 +233,7 @@ max-width:170px;
     padding-left: 55px;
 }
 .sidebar-collapse , .sidebar-collapse .nav{
-	background:none;
-	
+	background: white;
 }
 .sidebar-collapse .nav {
 	width:200px;
@@ -245,14 +244,10 @@ max-width:170px;
 .sidebar-collapse .nav > li > a {
 	color:#fff;
 	background:#316981; /* meniu lateral culoare */
-	text-shadow:none;
-	
+	text-shadow:none;	
 }
-
 #active-menu{ /* meniu lateral culoare activ*/
-	background:white;
-	outline:0;
-	color: #428bca;
+
 }
 
 .sidebar-collapse > .nav > li > a {
@@ -301,18 +296,22 @@ max-width:170px;
 	left:40px;
 }
 .navbar-side {
-	position:fixed;
+	position:absolute;
 	top:0;
-	border:none;
-	background-color: white; /*culoare; */
-	width: 200px;  /*width meniu lateral */
 	height: 100%;
+	background-color: #316981; /*culoare; */
+	width: 200px;  /*width meniu lateral */
+	padding-bottom: auto;
+	border-right : ridge;
+	border-color: white;
+	overflow:hidden;  
 }
 .navbar-cls-top { /*meniu top*/
 	background:#96c3d7;
 	margin-left: 200px;
 	border-bottom: ridge;
 	border-color: white;
+	overflow:hidden;  
 }
 .navbar-cls-top .navbar-brand:hover {
 
@@ -368,11 +367,15 @@ line-height: 1.428571429;
 		
     }
     .navbar-side {
+    	background-color: #316981; /*culoare; */
         z-index: 1;
-        position: absolute;
+        position: fixed;
         width: 200px;  /* width meniu lateral */
-       border-bottom: ridge 2px;
-       border-color: white;
+        border-bottom: ridge 2px;
+        height: 100%;
+		border-right : ridge;
+		border-color: white;
+		 overflow:hidden;  
     }
 
    .navbar {

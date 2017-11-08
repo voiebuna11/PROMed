@@ -5,13 +5,11 @@
 
 <title>Bolnavi cronici</title>
 <script>
+var temporar = 0;
 $(document).ready(function () {
 	$('#tabel-cu-cronici').dataTable();
-	
 });
-function lanseaza_modal_cronic(){
-	$("#adauga_cronic_modal").modal();
-}
+
 </script>
 </head>
 <body>
@@ -39,17 +37,16 @@ function lanseaza_modal_cronic(){
                                     <tbody>
                                         <?php
                                         $n = 8;
-										$result = $conn->prepare("SELECT cronici.id, pacienti.nume, pacienti.prenume,pacienti.CNP, pacienti.CID, pacienti.sex, pacienti.datan, cronici.afectiune, pacienti.asigurat FROM pacienti INNER JOIN cronici ON cronici.id = pacienti.id;");
+										$result = $conn->prepare("SELECT cronici.id, pacienti.nume, pacienti.prenume,pacienti.CNP, pacienti.CID, pacienti.sex, pacienti.datan, cronici.afectiune, pacienti.asigurat, cronici.tratament FROM pacienti INNER JOIN cronici ON cronici.id = pacienti.id;");
 										$result->execute();
 										for($j=0; $row = $result->fetch(); $j++){
 											$id = $row['id'];
 										?>
-										<tr>
-										<?php for($i=0; $i<$n+1; $i++){ ?>
-											<td> <?php echo $row[$i]; ?></td>
+										<tr name="<?php echo $id; ?>">
+										<?php for($i=0; $i<$n+2; $i++){ ?>
+											<td onclick="lanseaza_modal_editare_cronici(<?php echo $id; ?>)"> <?php echo $row[$i]; ?></td>
 										<?php } ?> 
-											<td><a class="btn btn-success" name="<?php echo $id; ?>"><i class="fa fa-medkit"></i></a></td>
-											<td><a class="btn btn-danger" name="<?php echo $id; ?>"><i class="fa fa-trash-o"></i></a></td>
+											<td><a class="btn btn-danger" name="<?php echo $id; ?>" onclick="sterge_cronic(this.name)"><i class="fa fa-trash-o" ></i></a></td>
 										</tr> 
 										<?php } ?>
                                     </tbody>
@@ -76,20 +73,58 @@ function lanseaza_modal_cronic(){
     	<span class="input-group-addon">Afecțiune</span>
     	<input type="text" class="form-control" id="afectiune_pacient_cronic">
     </div>
-    <p class="form-group help-block">*Doar numere permise. Obligatoriu 20 de caractere</p>
+    <p class="form-group help-block">*Doar litere, numere şi spații permise. Minim 2 caractere.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">Tratament</span>
-    	<textarea cols="24" rows="7"></textarea>
+    	<textarea cols="24" rows="7" id="tratament_pacient_cronic"></textarea>
     </div>
-    <p class="form-group help-block">*Formatul este Lună/Zi/An. Apăsați pe săgeata din dreapta.</p>
+    <p class="form-group help-block">*Doar litere, numere şi spații permise. Minim 2 caractere.</p>
 
     </form>   
 </div>
 <div class="modal-footer">
 	
 	<button type="button" class="btn btn-warning" data-dismiss="modal">Închide fereastra</button>
-	<button type="button" class="btn btn-primary">Adaugă în listă</button>
-	<strong><p id="errorlog_cronici" class="help-block"></p></strong>
+	<button type="button" class="btn btn-primary" onclick="salveaza_pacient_cronic()">Adaugă în listă</button>
+	<strong><p id="errorlog_cronici" class="help-block error_log"></p></strong>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="Editare_pacient_cronic_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h4 class="modal-title" id="myModalLabel">Editare pacient din lista de bolnavi cronici</h4>
+	</div>
+<div class="modal-body">
+	<form role="form" id="adauga_cronic_form">
+    <div class="form-group input-group">
+    	<span class="input-group-addon">CNP</span>
+    	<input type="text" class="form-control" id="CNP_pacient_cronic_e" disabled>
+    </div>
+    <p class="form-group help-block">*Doar numere permise. Obligatoriu 13 caractere.</p>
+    <br>
+    <hr>
+    <div class="form-group input-group">
+    	<span class="input-group-addon">Afecțiune</span>
+    	<input type="text" class="form-control" id="afectiune_pacient_cronic_e">
+    </div>
+    <p class="form-group help-block">*Doar litere, numere şi spații permise. Minim 2 caractere.</p>
+    <div class="form-group input-group">
+    	<span class="input-group-addon">Tratament</span>
+    	<textarea cols="24" rows="7" id="tratament_pacient_cronic_e"></textarea>
+    </div>
+    <p class="form-group help-block">*Doar litere, numere şi spații permise. Minim 2 caractere.</p>
+
+    </form>   
+</div>
+<div class="modal-footer">
+	
+	<button type="button" class="btn btn-warning" data-dismiss="modal">Închide fereastra</button>
+	<button type="button" class="btn btn-primary" onclick="salveaza_pacient_cronic_edit()">Salvează</button>
+	<strong><p id="errorlog_cronici_e" class="help-block error_log"></p></strong>
 </div>
 </div>
 </div>

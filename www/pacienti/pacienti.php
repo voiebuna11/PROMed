@@ -12,14 +12,18 @@ include("../dbconn.php");
 
 <title>Pacienti</title>
 <script>
-var temporar = 0;
+$(document).ready(function(){
+	div = '<div id="menu_arrow"><br>&#10095;</div>';
+	$('#meniu_2').append(div);
+});
 $(document).ready(function () {
 	$('#tabel-cu-pacienti').dataTable();
 });
-function lanseaza_modal(){
-	$("#Adaugare_pacient_modal").modal()
+var temporar = 0;
+var nr = 0;
+function open_fisa(id){
+	window.location.replace("fisa.php?id=" + id);
 }
-
 </script>
 </head>
 <body>	
@@ -35,7 +39,6 @@ function lanseaza_modal(){
 	</ul>
 </div>
 <div class="tab-content">
-	<br>
     <div class="tab-pane fade active in" id="lista">
     	<div class="panou_butoane">
     		<button class="btn btn-success" onclick="lanseaza_modal()"><i class="fa fa-plus "></i>  Adaugă pacient în listă</button>
@@ -55,32 +58,35 @@ function lanseaza_modal(){
                                             <th>Sex</th>
                                             <th>Data nașterii</th>
                                             <th>Asig.</th>
+                                            <th>Fișă</th>
                                             <th>Șterge</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $n = 8;
-										$result = $conn->prepare("SELECT * FROM pacienti ORDER BY id DESC");
+										$result = $conn->prepare("SELECT * FROM pacienti ORDER BY id ASC");
 										$result->execute();
+										$nr = 0;
 										for($j=0; $row = $result->fetch(); $j++){
 											$id = $row['id'];
+											$nr++;
 										?>
-										<tr name="<?php echo $id; ?>" >
+										<tr name="<?php echo $id; ?>">
 										<?php for($i=0; $i<$n; $i++){ ?>
-											<td onclick="lanseaza_modal_editare(<?php echo $id; ?>)"> <?php echo $row[$i]; ?></td>
+											<td onclick="lanseaza_modal_editare(<?php echo $id; ?>, <?php echo $nr; ?>)"> <?php echo $row[$i]; ?></td>
 										<?php } ?> 
+											<td><a class="btn btn-primary" name="<?php echo $id; ?>" onclick="open_fisa(this.name);"><i class="fa fa-folder-open-o"></i></a></td>
 											<td><a class="btn btn-danger" name="<?php echo $id; ?>" onclick="sterge_pacient(this.name);"><i class="fa fa-trash-o"></i></a></td>
 										</tr> 
 										<?php } ?>
                                     </tbody>
                                 </table>
                             </div>
-                            </div>
-    	
+               </div>
     </div>
     <div class="tab-pane fade" id="bolnavi"><?php include("bolnavi.php") ?></div>
-    <div class="tab-pane fade" id="indexfisa"></div>
+    <div class="tab-pane fade" id="indexfisa"><?php include("indexfisa.php") ?></div>
 </div>
 </div>
 
@@ -159,27 +165,27 @@ function lanseaza_modal(){
 	<form role="form" id="editare_pacient_form">
     <div class="form-group input-group">
     	<span class="input-group-addon">Nume</span>
-    	<input type="text" class="form-control" id="nume_pacient_e">
+    	<input type="text" class="form-control modal_edit" id="nume_pacient_e">
     </div>
     <p class="form-group help-block">*Doar litere și majuscule permise.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">Prenume</span>
-    	<input type="text" class="form-control" id="prenume_pacient_e">
+    	<input type="text" class="form-control modal_edit" id="prenume_pacient_e">
     </div>
     <p class="form-group help-block">*Doar litere și majuscule permise.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">CNP</span>
-    	<input type="text" class="form-control" id="CNP_pacient_e">
+    	<input type="text" class="form-control modal_edit" id="CNP_pacient_e">
     </div>
     <p class="form-group help-block">*Doar numere permise. Obligatoriu 13 caractere.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">CID</span>
-    	<input type="text" class="form-control" id="CID_pacient_e">
+    	<input type="text" class="form-control modal_edit" id="CID_pacient_e">
     </div>
     <p class="form-group help-block">*Doar numere permise. Obligatoriu 20 de caractere</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">Sex</span>
-        <select class="form-control" id="sex_pacient_e">
+        <select class="form-control modal_edit" id="sex_pacient_e">
             <option>Bărbat</option>
             <option>Femeie</option>
         </select>
@@ -187,7 +193,7 @@ function lanseaza_modal(){
     <p class="form-group help-block">*Apăsați pe căsuța de selectare. Opțiunea bărbat este default.</p>
     <div class="form-group input-group">
     	<span class="input-group-addon">Data nașterii</span>
-    	<input type="date" class="form-control" id="datan_pacient_e">
+    	<input type="date" class="form-control modal_edit" id="datan_pacient_e">
     </div>
     <p class="form-group help-block">*Formatul este Lună/Zi/An. Apăsați pe săgeata din dreapta.</p>
     <div class="form-group input-group">

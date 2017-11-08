@@ -14,9 +14,6 @@
    
 <link href="../bootstrap/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
   <!-- DATA TABLE SCRIPTS -->
     <script src="../bootstrap/assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="../bootstrap/assets/js/dataTables/dataTables.bootstrap.js"></script>
-        
-         <!-- CUSTOM SCRIPTS -->

@@ -25,7 +25,7 @@ function modifica($conn, $tabel, $camp, $valoare, $cond, $valcond){
 	}
 }
 function inserare($conn, $tabel, $campuri, $valori){
-	//tipar valori $valori ="'".$exemplu."' , '".$exemplu."', '".$exemplu."'";
+	//tipar valori $valori ="'".$exemplu."', '".$exemplu."', '".$exemplu."'";
 	$sql = "INSERT INTO ".$tabel." (".$campuri.") VALUES (".$valori.")";
 	$stmt = $conn->prepare($sql);
 	if($stmt->execute()){
@@ -38,6 +38,13 @@ function update($conn, $tabel, $camp, $valoare, $cond, $valcond){
 	if($stmt->execute()){
 		return 1;
 	}
+}
+function selectare($conn, $tabel, $camp, $cond, $valcond){
+	$sql ="SELECT $camp FROM ".$tabel." WHERE $cond ='".$valcond."'";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$result=$stmt->fetch(PDO::FETCH_ASSOC);
+	return $result[$camp];
 }
 function trimitere_email_resetparola($user_email, $reset_password){
         $mail = new PHPMailer;

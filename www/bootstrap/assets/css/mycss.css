@@ -114,7 +114,6 @@ tr {
 .modal-body .input-group-addon{
 	min-width:110px;
 }
-
 .modal-body .help-block{
 	color: #a6a6a6;
 	font-size: 10px;
@@ -124,15 +123,115 @@ tr {
 	padding-left:10px
 }
 .modal-footer #errorlog{
+	margin-top: -25px;
 	color: red;
 	float: left;
 	font-size: 13px;
 }
-.modal-footer #errorlog_e{
+.modal-footer #errorlog_e, .error_log{
+	margin-top: -25px;
 	color: red;
 	float: left;
 	font-size: 13px;
 }
 .text_alert_modal{
 	text-align: center;
+}
+#menu_arrow{
+	color: white;
+	float: right;
+	 -webkit-animation: fadein 0.3s; /* Safari, Chrome and Opera > 12.1 */
+}
+#background-indexfisa{
+	margin-top: -2%;
+}
+.tab-content{
+	margin-top:2%;
+}
+#search-box{
+	width: 400px;
+}
+.search-box{
+	margin: 0 auto;
+	background: none;
+	position: absolute;
+    top: 50%;
+    left: 57%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.meniu-fisa{
+	background-color: #f2b99c;
+}
+.sidebar-fisa, .sidebar-fisa .nav{
+	background: #f2b99c;
+}
+.sidebar-fisa .nav > li > a {
+	color:#000000;
+	background:#f2b99c; /* meniu lateral culoare */
+	text-shadow:none;
+	font-weight: bold;
+	border-top: solid 1px;
+	border-color: #d9aa93;
+	margin-top: -1px;
+}
+.sidebar-fisa .nav > li > a:hover {
+	color: #000000;
+	background: white; /* meniu lateral culoare */
+	text-shadow:none;
+}
+.sidebar-fisa .nav > li > a:focus {
+	color: #000000;
+	background: white; /* meniu lateral culoare */
+	text-shadow:none;
+}
+.sheet {
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+}
+.navigator-fisa{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 45px;
+	font-size: 15px;
+}
+#navigator-fisa .radio{
+	margin-top: 15px;
+	text-decoration: underline;
+}
+#id_fisa_menu{
+	font-size: 30px;
+	border-bottom: solid 1px;
+	border-color: #d9aa93;
+	margin-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+.left-col {
+  width: 50%;
+  height: 93%;
+  border-right: 1px solid black;
+  float: left;
+  box-sizing: border-box;
+  margin-bottom: 2%;
+ 
+}
+.right-col {
+  width: 50%;
+  height: 96%;
+  float: right;
+}
+.right-col, .left-col{
+	margin-top: 2%;
+	background: transparent;
 }

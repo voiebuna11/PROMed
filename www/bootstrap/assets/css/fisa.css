@@ -1,0 +1,232 @@
+.meniu-fisa{
+	background-color: #f2b99c;
+}
+.sidebar-fisa, .sidebar-fisa .nav{
+	background: #f2b99c;
+}
+.sidebar-fisa .nav > li > a {
+	color:#000000;
+	background:#f2b99c; /* meniu lateral culoare */
+	text-shadow:none;
+	font-weight: bold;
+	border-top: solid 1px;
+	border-color: #d9aa93;
+	margin-top: -1px;
+}
+.sidebar-fisa .nav > li > a:hover {
+	color: #000000;
+	background: white; /* meniu lateral culoare */
+	text-shadow:none;
+}
+.sidebar-fisa .nav > li > a:focus {
+	color: #000000;
+	background: white; /* meniu lateral culoare */
+	text-shadow:none;
+}
+.sheet {
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+}
+#navigator-fisa{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 45px;
+	font-size: 15px;
+}
+#navigator-fisa .radio{
+	margin-top: 15px;
+	text-decoration: underline;
+}
+#id_fisa_menu{
+	font-size: 30px;
+	border-bottom: solid 1px;
+	border-color: #d9aa93;
+	margin-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
+.mySlides {
+	display:none;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 85%;
+  height: 100%;
+  position:absolute;
+
+}
+#background-indexfisa{
+	position: absolute;
+	height: 103.9%;
+	width: 85%;
+}
+/* Next & previous buttons */
+#prev, #next {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  width: auto;
+  padding: 16px;
+  padding-bottom: 10%;
+  padding-top: 10%;
+  color: #316981;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+#next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+#prev:hover, #next:hover {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.6s;
+  opacity: 1;
+}
+.input-group-btn .btn{
+	height: 34px;
+}
+h3{
+	margin-top: -5px;
+}
+.fisa_form{
+	width: 300px;
+	margin-top: 45px;
+	margin-left: 60px;
+}
+.fisa_form_2{
+	width: 300px;
+	margin-top: 45px;
+	margin-left: 20px;
+	margin-right: 60px;
+}
+#descr{
+	margin-top: 14px;
+}
+.fisa_form .form-control{
+	width: 400px;
+	text-align: right;
+}
+.fisa_form_2 .form-control{
+	text-align: right;
+}
+.input-group-addon{
+	font-weight: bold;
+}
+#nume{
+	width: 383px;
+}
+#prenume{
+	width: 360px;
+}
+#datan{
+	width: 345px;
+}
+#prenume_t{
+	width: 388px;
+}
+#prenume_m{
+	width: 390px;
+}
+#CNP{
+	width: 412px;
+}
+#localitate{
+	width: 355px;
+}
+#strada{
+	width: 258px;
+}
+#nr{
+	width: 81px;
+}
+#antecedente_f{
+	width: 267px;
+}
+#saptamani{
+	width: 271px;
+}
+#greutate{
+	width: 90px;
+}
+#inaltime{
+	width: 89px;
+}
+#PC{
+	width: 138px;
+}
+#PT{
+	width: 140px;
+}
+#asistat{
+	width: 91px;
+}
+#rang{
+	width: 71px;
+}
+#alimentat{
+	width:197px;
+}
+#malformatii{
+	width: 265px;
+}
+#antecedente_p{
+	width: 266px;
+}
+#boli{
+	width: 419px;
+}
+.help-block{
+	color: #606060;
+	font-size: 10px;
+	margin-top: -22px;
+	margin-bottom: -4px;
+	inline-block;
+}
+td {
+	height: 80px;
+	background-color: #f9f9f9;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+#creeaza_fisa{
+	position: absolute;
+	margin: 0 auto;
+	top: 50%;
+    left: 55%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+#slide-show{
+	display: none;
+}
+.navigator-fisa a{
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 13px;
+}

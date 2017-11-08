@@ -348,14 +348,14 @@
 		 * sZeroRecords - assuming that is given.
 		 */
 		if ( !oLanguage.sEmptyTable && zeroRecords &&
-			oDefaults.sEmptyTable === "No data available in table" )
+			oDefaults.sEmptyTable === "Nici o înregistrare disponibilă." )
 		{
 			_fnMap( oLanguage, oLanguage, 'sZeroRecords', 'sEmptyTable' );
 		}
 	
 		/* Likewise with loading records */
 		if ( !oLanguage.sLoadingRecords && zeroRecords &&
-			oDefaults.sLoadingRecords === "Loading..." )
+			oDefaults.sLoadingRecords === "Se încarcă.." )
 		{
 			_fnMap( oLanguage, oLanguage, 'sZeroRecords', 'sLoadingRecords' );
 		}
@@ -10571,7 +10571,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "Nici o înregistrare disponibilă.",
 	
 	
 			/**
@@ -10757,7 +10757,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			"sLoadingRecords": "Se încarcă...",
 	
 	
 			/**
@@ -10778,7 +10778,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "Se procesează...",
 	
 	
 			/**

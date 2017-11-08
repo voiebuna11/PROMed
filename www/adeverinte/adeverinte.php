@@ -10,7 +10,10 @@ include("../header.php");
 
 <title>Adeverinte</title>
 <script>
-
+$(document).ready(function(){
+	div = '<div id="menu_arrow"><br>&#10095;</div>';
+	$('#meniu_4').append(div);
+});
 </script>
 </head>
 <body>

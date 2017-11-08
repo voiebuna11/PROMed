@@ -87,6 +87,6 @@ function login(){
    	 	<a onclick="login()" style="float:right" class="btn btn-primary">Log In</a><br>
    	 	<strong><p id="errorlog" class="help-block" align="center"></p></strong>
     </div>
-    </form>   
+    </form>
 </body>
 </html>
