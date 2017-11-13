@@ -235,3 +235,109 @@ tr {
 	margin-top: 2%;
 	background: transparent;
 }
+.tab-content{
+	height: auto;
+}
+.icon-chevron {
+  display:block;
+  width:15px;
+  height:22px;
+}
+.icon-chevron-rotate {
+  transform: rotate(180deg);
+}
+.dropdown-menu li{
+	cursor: pointer;
+	width: 195px;
+}
+#separator{
+	width: 100%;
+	height: 2%;
+	background: #eef2f5;
+	border-top: solid 1px;
+	border-color: #e6e6e6;
+	display:block;
+}
+.grup_programare{
+	height: 72px;
+	width: 935px;
+	border-top: solid 2px;
+	border-color: #e6e6e6;
+	color: #c9c9c9;
+}
+.grup_programare .ora{
+	margin-left: 15px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+#back_to_today{
+	margin-bottom: 15px;
+}
+.dot{
+	margin-top: 10px;
+	color: white;
+	font-size: 14px;
+}
+.dot span{
+	margin-left: 15px;
+	margin-right: 5px;
+}
+.dot-red{
+		color: #ff3333;
+}
+.dot-blue{
+	color: #6666ff;
+}
+.dot-green{
+	color: green;
+}
+
+.programare{
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	height: 27px;
+    width: 400px;
+    color: black;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: #f2f2f2;
+    border-radius: 4px;
+    float: left;
+    word-spacing: 10px;
+}
+.programare .dot{
+	margin-right: 10px;
+}
+.casuta_programare{
+		position:fixed;
+		margin-left: 100px;
+		margin-top: -25px;
+}
+.programare .nume{
+	display: inline;
+	margin-right: 10px;
+	margin-top: 1px;
+	word-spacing: normal;
+}
+.programare .anulare{
+	float: right;
+	cursor: pointer;
+	margin-top: 4px;
+}
+.modal .responsive-calendar{
+	width: 200px;
+	margin-top: -40px;
+	margin-bottom: -50px;
+	height: 300px;
+}
+.modal .responsive-calendar .days a{
+	color: black;
+}
+.modal .responsive-calendar .day.not-current a{
+	color: #e6e6e6;
+}
+.modal .responsive-calendar .controls h4 {
+  color: black;
+}

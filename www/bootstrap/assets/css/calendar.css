@@ -1,0 +1,115 @@
+.responsive-calendar{ /* principal */
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 87%;
+	height: 50%;
+}
+.responsive-calendar-placeholder {}
+.responsive-calendar-modal {
+  background-color: #1d86c8;
+  color: white;
+  padding: 1em;
+}
+.responsive-calendar .controls {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.responsive-calendar h4{
+	color: white;
+	 
+}
+.responsive-calendar .controls a {
+  cursor: pointer;
+  color: white;
+  background: #4f535e;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+}
+.responsive-calendar .controls h4 {
+  display: inline;
+}
+.responsive-calendar .day-headers,
+.responsive-calendar .days {
+  font-size: 0;
+  color: #747c8b;
+  font-weight: bold;
+}
+.responsive-calendar .day {
+  display: inline-block;
+  position: relative;
+  font-size: 10px;
+  width: 14.285714285714286%;
+  text-align: center;
+}
+.responsive-calendar .day a{
+  color: white;
+  display: block;
+  cursor: pointer;
+  height: 8.5%;
+  padding: 21% 0 20% 0;
+}
+.responsive-calendar .day a:hover {
+  background-color: #ff5e46;
+  text-decoration: none;
+  border-radius: 100%;
+}
+.responsive-calendar .day.header {
+  /*border-bottom: 1px gray solid; */
+  padding-bottom: 10px;
+}
+.responsive-calendar .day.active a {
+  background-color: #96c3d7;
+  text-decoration: none;
+  border-radius: 100%;
+  color: black;
+}
+.responsive-calendar .day.active a:hover {
+  background-color: #96c3d7;
+  color: black;
+}
+.responsive-calendar .day.active .not-current {
+  background-color: #96c3d7;
+  color: #ffffff;
+}
+.responsive-calendar .day.active .not-current:hover {
+  background-color: #bcdff5;
+}
+.responsive-calendar .day.not-current a {
+  color: black;
+}
+.responsive-calendar .day .badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 1;
+}
+.navbar-program{
+	margin-top: 4%;
+	right: 0;
+	top: 0;
+	position: absolute;
+	background: #373d49; /* 96c3d7 */
+	width: 230px;
+	height: 92.3%;
+	 -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; 
+}
+.panel-body{
+	 background: #373d49;
+}
+.nav-tabs li a{
+	color: #373d49;
+}
+#back_to_today{
+	width: 100%;
+	color:white;
+	background-color: #4a515b;
+}

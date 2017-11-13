@@ -107,16 +107,19 @@ function save_all(){
   <div class=" form-group input-group">
   	<span class="input-group-addon">Localitatea</span>
   	<input type="text" class="form-control" id="localitate"/>
-  	<span class="input-group-btn" ><button class="btn btn-success" type="button" name="localitate reg_1 fisa" onclick="save(this.name)"><i class="fa fa-floppy-o"></i></button></span>
+  	
+  	<span class="input-group-addon">Bloc*</span>
+  	<input type="text" class="form-control" id="bloc"/>
+  	<span class="input-group-btn" ><button class="btn btn-success" type="button" name="localitate reg_1 fisa bloc reg_2" onclick="save(this.name)"><i class="fa fa-floppy-o"></i></button></span>
   </div>
-  <p class="form-group help-block">*Doar litere și majuscule permise.</p>
+  <p class="form-group help-block">*Doar litere, majuscule respectiv numere permise.</p>
   <div class=" form-group input-group">
   	<span class="input-group-addon">Strada</span>
   	<input type="text" class="form-control" id="strada"/>
 
   	<span class="input-group-addon">Nr.</span>
   	<input type="text" class="form-control" id="nr"/>
-  	<span class="input-group-btn" ><button class="btn btn-success" type="button" name="strada reg_3 fisa nr reg_3" onclick="save(this.name)"><i class="fa fa-floppy-o"></i></button></span>
+  	<span class="input-group-btn" ><button class="btn btn-success" type="button" name="strada reg_3 fisa nr reg_2" onclick="save(this.name)"><i class="fa fa-floppy-o"></i></button></span>
   </div>
   <p class="form-group help-block">*Doar litere, numere şi spații permise.</p>
   </form>
@@ -136,7 +139,7 @@ function save_all(){
   	<span class="input-group-addon">Născut la</span>
   	<input type="text" class="form-control" id="saptamani"/>
   	<span class="input-group-addon">săptămâni</span>
-  	<span class="input-group-btn" ><button class="btn btn-success" type="button" name="saptamani reg_3 fisa" onclick="save(this.name)"><i class="fa fa-floppy-o"></i></button></span>
+  	<span class="input-group-btn" ><button class="btn btn-success" type="button" name="saptamani reg_2 fisa" onclick="save(this.name)"><i class="fa fa-floppy-o"></i></button></span>
   </div>
   <p class="form-group help-block">*Doar numere permise.</p>
   <div class=" form-group input-group">
@@ -176,7 +179,7 @@ function save_all(){
   	<span class="input-group-addon">luni</span>
   	<span class="input-group-btn" ><button class="btn btn-success" type="button" name="alimentat reg_2 fisa" onclick="save(this.name)"><i class="fa fa-floppy-o"></i></button></span>
   </div>
-  <p class="form-group help-block">*Doar numerepermise.</p>
+  <p class="form-group help-block">*Doar numere permise.</p>
   <div class="form-group input-group">
   	<span class="input-group-addon">Malformații congenitale</span>
   	<input type="text" class="form-control" id="malformatii"/>
@@ -245,7 +248,7 @@ function save_all(){
 </div>
 
 <div class="mySlides fade">
-  5
+  Altele
 </div>
 
 <a id="next" onclick="plusSlides(1)">&#10095;</a>

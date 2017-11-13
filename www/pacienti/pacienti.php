@@ -205,11 +205,8 @@ function open_fisa(id){
     <p class="form-group help-block">*Bifați căsuța pentru "Da". Debifați pentru "Nu".</p>
 
     </form>   
-	
-	
 </div>
 <div class="modal-footer">
-	
 	<button type="button" class="btn btn-warning" data-dismiss="modal">Închide fereastra</button>
 	<button type="button" class="btn btn-primary" onclick="salveaza_pacient_edit()">Salvează</button>
 	<strong><p id="errorlog_e" class="help-block"></p></strong>

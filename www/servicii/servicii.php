@@ -16,8 +16,20 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body>
-	<?php include("../meniu.php");?>
-  	<div class="sheet">Servicii</div>
+<body>	
+<?php include("../meniu.php");?>
+<div class="sheet">
+	
+<div class="panel-body">
+	<ul class="nav nav-tabs">
+    	<li class="active"><a href="#program" name="Program" data-toggle="tab">Program de lucru</a></li>
+        <a class="btn btn-danger" href="../logout.php" id="logout">Deconectare</a>
+	</ul>
+</div>
+<div class="tab-content">
+ 	<div class="tab-pane fade" id="program"></div>
+</div>
+</div>
+
 </body>
 </html>

@@ -333,12 +333,12 @@ function save(nume){
 			i = j;
 			k = j;
 			if(i > 7)  i--;
-			if(i > 10) i--;	
+			if(i > 8)  i--;
+			if(i > 9) i--;	
+			if(i > 11) i--;
 			if(i > 12) i--;
-			if(i > 13) i--;
 		}
 	}
-	
 	if(reg == 'reg_1'){
 		reg = reg_1;
 	}
@@ -348,6 +348,10 @@ function save(nume){
 	else if(reg == 'reg_3'){
 		reg = reg_3;
 	}
+	if(camp == 'nume' || camp == 'prenume' || camp == 'prenume_t' || camp == 'prenume_m' || camp == 'localitate'){
+		valoare = toTitleCase(valoare);
+	}
+	if(camp == 'malformatii' || camp == 'antecedente_p' || camp == 'antecedente_f' || camp == 'boli') valoare = toTitleCase(valoare);
 	if((valoare.search(reg)==-1 && camp != 'datan') || (camp == 'CNP' && valoare.length != 13)) {
 		divs[i].className = divs[i].className.replace(" has-success", "");
 		divs[i].className += " has-error";
@@ -381,14 +385,13 @@ function save(nume){
 			else if(reg2 == 'reg_3'){
 				reg2 = reg_3;
 			}
-			if(valoare2.search(reg2)==-1) {
+			if(valoare2.search(reg2)==-1 && camp2 != 'bloc') {
 				divs[i].className = divs[i].className.replace(" has-success", "");
 				divs[i].className += " has-error";
 				$(temp).select();
 				erori++;
 				return 0;
 			}
-			
 		}
 	
 	$.ajax({  
@@ -423,4 +426,95 @@ function creeaza_fisa(){
            		window.location.reload("fisa.php?id=" + id);
            }
 		});
+}
+function lanseaza_modal_creare_programare(){
+	document.getElementById("adauga_programare_form").reset();
+	$("#data_p").val(curent_day);
+	document.getElementById("errorlog").innerHTML = '';
+	$("#creeaza_programare_modal").modal();
+}
+function adauga_programare(){
+	var regex_nr = /^\d+$/;
+	data_p = $("#data_p").val();
+	CNP = $("#CNP_pacient").val();
+	ora_p = $("#ora_p").val();
+	nume_p = $("#nume_p").val();
+	var ora = ora_p.substring(0, 2);
+	if(CNP.search(regex_nr)==-1 || CNP.length != 13 || ora_p.length != 5 || ora < 8 || ora > 16) {
+		document.getElementById("errorlog").innerHTML = "CNP incorect sau ora nu corespunde programului.";
+		return 0;
+	}
+	$.ajax({  
+           url:"../scripts/adaugare_programare.php",  
+           method:"POST",
+           data: {data_p: data_p, CNP: CNP, ora_p: ora_p, nume_p: nume_p, ora: ora}, 
+           dataType:"text",  
+           success:function(data){  
+           		document.getElementById("errorlog").innerHTML = data;
+           }
+	});
+}
+function incarca_programari(){
+	$('.casuta_programare > .programare').remove();
+	$('.casuta_programare > .programare').hide();
+	$.ajax({  
+           url:"../scripts/preluare_programari.php",  
+           method:"POST",
+           data: {data_p: curent_day}, 
+           dataType:"text",  
+           success:function(data){  
+           		temp = data.split("\n");
+           		var n = temp.length
+           		n--;
+           		
+           	for(i = 0; i < n; i++){
+    			
+           		v = temp[i].split("\t");
+           		id_p = v[0];
+           		if(v[4] == 'Consultație'){
+           			culoare = 'red';
+           		}
+           		else if(v[4] == 'Imunizare'){
+           			culoare = 'green';
+           		}
+           		else if(v[4] == 'Serviciu gravide'){
+           			culoare = 'blue';
+           		}
+				id = v[2].substring(0, 2) + '_00';
+				id = '#' + id + ' .casuta_programare';
+				ora = v[2];
+				if(v[2].substring(0, 2) > 12){
+					ora = '0' + (ora[1]-2) + ':' + ora[3] + ora[4] + 'pm';
+				}
+				else{
+					ora = ora + 'am';
+				}
+				nume = v[3];
+           		$(id).append('<div class="programare"><span class="dot dot-'+ culoare +'"><i class="fa fa-circle"></i></span>'+ ora +' - <div class="nume">'+ nume +'</div><a class="anulare" onclick="anuleaza_programarea('+ id_p +')"><i class="fa fa-times"></i></a></div>');
+           		$('.casuta_programare > .programare').fadeIn("slow");
+           	}
+           }
+		});	
+}
+function anuleaza_programarea(id){
+	if(confirm('Doriti sa anulati programarea?')){
+		$.ajax({  
+           url:"../scripts/anuleaza_programarea.php",  
+           method:"POST",
+           data: {id: id}, 
+           dataType:"text",  
+           success:function(data){  
+           		alert_success(data);
+           		incarca_programari();
+           }
+		});	
+	}
+}
+function intoarce_ziua(){
+	curent_day = today;
+	$("#curent_day").hide();
+	document.getElementById("curent_day").innerHTML = curent_day;
+	$("#curent_day").fadeIn();
+	incarca_programari();
+	$(lastselected).css("background-color", "transparent");
 }
