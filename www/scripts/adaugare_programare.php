@@ -17,12 +17,13 @@ if(isset($_POST['data_p']) && isset($_POST['CNP'])&& isset($_POST['ora_p']) && i
 	if($nr >= 4){
 		die('Numărul maxim de programări pe oră a fost atins.');
 	}
+	if(verifica2($conn, 'programari', 'ora_p', $ora_p, 'data_p', $data_p) == 1) die("Există deja o programare la această oră.");
 	if(verifica($conn, 'pacienti', 'CNP', $CNP) != 1) die("CNP-ul nu este înregistrat în baza de date.");
 	//tipar valori $valori ="'".$exemplu."' , '".$exemplu."', '".$exemplu."'";
 	$valori ="'".$data_p."' , '".$ora_p."', '".$CNP."' , '".$nume_p."'";
 	$campuri = 'data_p, ora_p, cnp_pacient, nume_p';
 	if(inserare($conn, 'programari', $campuri, $valori) == 1){
-		die("Programare salvată cu succes.");
+		die("1");
 	}
 }
 echo 'Datele nu au fost înregistrate.'; 

@@ -434,6 +434,7 @@ function lanseaza_modal_creare_programare(){
 	$("#creeaza_programare_modal").modal();
 }
 function adauga_programare(){
+	$("#errorlog").css("color", "red");
 	var regex_nr = /^\d+$/;
 	data_p = $("#data_p").val();
 	CNP = $("#CNP_pacient").val();
@@ -449,7 +450,12 @@ function adauga_programare(){
            method:"POST",
            data: {data_p: data_p, CNP: CNP, ora_p: ora_p, nume_p: nume_p, ora: ora}, 
            dataType:"text",  
-           success:function(data){  
+           success:function(data){
+           		if(data == "1"){
+           			$("#errorlog").css("color", "green");
+           			document.getElementById("errorlog").innerHTML = 'Programare salvată cu succes.';
+           			return 0;
+           		}
            		document.getElementById("errorlog").innerHTML = data;
            }
 	});
@@ -488,6 +494,9 @@ function incarca_programari(){
 				}
 				else{
 					ora = ora + 'am';
+				}
+				if(v[2].substring(0, 2) == 12){
+					ora = ora.replace("am", "pm");
 				}
 				nume = v[3];
            		$(id).append('<div class="programare"><span class="dot dot-'+ culoare +'"><i class="fa fa-circle"></i></span>'+ ora +' - <div class="nume">'+ nume +'</div><a class="anulare" onclick="anuleaza_programarea('+ id_p +')"><i class="fa fa-times"></i></a></div>');

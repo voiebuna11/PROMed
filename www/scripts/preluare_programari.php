@@ -4,7 +4,7 @@ include("../functii.php");
 
 if(isset($_POST['data_p'])){
 	$data_p = $_POST['data_p'];
-	$sql ="SELECT * FROM programari WHERE data_p ='".$data_p."'";
+	$sql ="SELECT * FROM programari WHERE data_p ='".$data_p."' ORDER BY ora_p ASC";
 	$result = $conn->query($sql);
 	$data = '';
 foreach($result as $row)

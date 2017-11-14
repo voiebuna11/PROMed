@@ -157,7 +157,7 @@ $(document).ready(function(){
     </div>
     <p class="form-group help-block">*Apasă pe săgeata din dreapta. AM/PM - inainte/după amiază.</p>
     <div class="form-group input-group">
-    	<span class="input-group-addon">Sex</span>
+    	<span class="input-group-addon">Tip</span>
         <select class="form-control modal_edit" id="nume_p">
             <option>Consultație</option>
             <option>Imunizare</option>
